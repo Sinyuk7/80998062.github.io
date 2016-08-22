@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: sinyuk@80998062.com
 description: ""
 keyword: ""
-url: "http://80998062.github.io"              # your host, for absolute URL
+url: "https://80998062.github.io"              # your host, for absolute URL
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
