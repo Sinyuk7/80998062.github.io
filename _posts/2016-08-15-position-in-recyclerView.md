@@ -10,7 +10,7 @@ tags:
     - RecyclerView
 ---
 
-## Position in RecyclerView
+# Position in RecyclerView
 
 We know, there are two types of position related methods inRecyclerView:
 
