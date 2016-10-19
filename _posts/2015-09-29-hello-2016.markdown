@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "Welcome to My Blog"
+title:      "随便写写"
 subtitle:   " \"Sinyuk\""
-date:       2016-01-29 12:00:00
+date:       2015-09-29 12:00:00
 author:     "Sinyuk"
 header-img: "img/post-bg-2015.jpg"
 tags:
