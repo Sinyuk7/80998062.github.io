@@ -2,7 +2,7 @@
 layout:     post
 title:      "Schedules In Rxjava"
 subtitle:   "线程切换"
-date:       2016-03-19
+date:       2016-04-05
 author:     "Sinyuk"
 header-img: ""
 tags:
