@@ -2,9 +2,9 @@
 layout:     post
 title:      "Retrofit with Rxjava"
 subtitle:   "Retrofit和Rxjava的组合拳"
-date:       2016-06-12
+date:       2016-06-02
 author:     "Sinyuk"
-header-img: ""
+header-img: "img/2016-06-12.webp"
 tags:
     - Android
     - Rxjava
@@ -49,7 +49,7 @@ tags:
 
 
 - 线程处理
- 
+
 因为基本到最后都是一个io线程和一个主线程,所以我们可以封装在一个transformer里面
 
 	<T> Transformer<T, T> applySchedulers() {  
@@ -88,4 +88,3 @@ tags:
 > adapter如果只关心`onNext()`发射的数据,继承一个Action1< T >就好了
 
 > 然后就不用写什么`setData()`方法了,直接在里面实现`onNext(T data)`
-
