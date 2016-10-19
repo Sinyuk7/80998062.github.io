@@ -2,7 +2,7 @@
 layout:     post
 title:      "Position in RecyclerView"
 subtitle:   "一个Exception"
-date:       2016-04-15
+date:       2016-03-27
 author:     "Sinyuk"
 header-img: ""
 tags:

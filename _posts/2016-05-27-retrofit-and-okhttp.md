@@ -6,7 +6,7 @@ date:       2016-05-27
 author:     "Sinyuk"
 header-img: "img/2016-05-27.webp"
 tags:
-	- Android
+    - Android
     - Retrofit
     - Okhttp
 
@@ -20,7 +20,7 @@ tags:
 
 水一点东西
 
-##Aouth
+##OAuth
 
 关于授权的处理,基本就是用Interceptor了...
 
