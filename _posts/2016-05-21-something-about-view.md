@@ -2,7 +2,7 @@
 layout:     post
 title:      "Something about View"
 subtitle:   "笔记笔记"
-date:       2016-05-21
+date:       2016-03-21
 author:     "Sinyuk"
 header-img: ""
 tags:
@@ -21,7 +21,7 @@ tags:
 
  
 
-- The actual measurement work of a view is performed in {@link #onMeasure(int, int)}, called bythis method. 
+- The actual measurement work of a view is performed in {@link #onMeasure(int, int)}, called bythis method.
 
   > Therefore,only onMeasure(int, int) can and must beoverridden by subclasses
 
@@ -54,17 +54,17 @@ tags:
 
     `@Override` 
 
-    `protected void onLayout(boolean changed,int l, int t, int r, int b) {`  
+    `protected void onLayout(boolean changed,int l, int t, int r, int b) {` 
 
-        `if (getChildCount() > 0) {`  
+        `if (getChildCount() > 0) {` 
 
-            `View childView =getChildAt(0);`  
+            `View childView =getChildAt(0);` 
 
-            `childView.layout(0, 0,childView.getMeasuredWidth(), childView.getMeasuredHeight());`  
+            `childView.layout(0, 0,childView.getMeasuredWidth(), childView.getMeasuredHeight());` 
 
         `}` 
 
-    `}`  
+    `}` 
 
 
 
