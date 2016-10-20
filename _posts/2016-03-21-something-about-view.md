@@ -52,20 +52,16 @@ tags:
 
   > 在内部按照各自的规则对子视图进行布局 比如最简单的一个例子:
 
-    `@Override` 
+```java
+@Override
+protected void onLayout(boolean changed,int l, int t, int r, int b) {
 
-    `protected void onLayout(boolean changed,int l, int t, int r, int b) {` 
-
-        `if (getChildCount() > 0) {` 
-
-            `View childView =getChildAt(0);` 
-
-            `childView.layout(0, 0,childView.getMeasuredWidth(), childView.getMeasuredHeight());` 
-
-        `}` 
-
-    `}` 
-
+	if (getChildCount() > 0) { 
+		View childView =getChildAt(0);
+			childView.layout(0, 0,childView.getMeasuredWidth(), childView.getMeasuredHeight());
+        }
+}
+```
 
 
 > `getWidth()`方法和`getMeasureWidth()`方法到底有什么区别呢?
