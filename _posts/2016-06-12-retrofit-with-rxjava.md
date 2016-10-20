@@ -32,15 +32,18 @@ tags:
 
 然后我们统一处理Http的resultCode,并将HttpResult的Data部分剥离出来返回给subscriber
 
-	public class HttpResultFunc<T> implements Func1<HttpResult<T>, T> {
-	@Override
-    public T call(HttpResult<T> httpResult) {
-        if (httpResult.getCode() != 2001) {
-            throw new ApiException(httpResult.getCode());
-        	}
-        	return httpResult.getData();
+```java
+public class HttpResultFunc<T> implements Func1<HttpResult<T>, T> {
+@Override
+public T call(HttpResult<T> httpResult) {
+    if (httpResult.getCode() != 2001) {
+        throw new ApiException(httpResult.getCode());
     	}
+    	return httpResult.getData();
 	}
+}
+```
+
 
 这里我们自己定义了一个ApiException,构造函数里面传进去一个code,然后根据这个code你可以用switch语句返回你喜欢的localized message;
 
@@ -53,10 +56,12 @@ tags:
 
 因为基本到最后都是一个io线程和一个主线程,所以我们可以封装在一个transformer里面
 
-	<T> Transformer<T, T> applySchedulers() {  
-		return observable -> observable.subscribeOn(Schedulers.io())
-    	.observeOn(AndroidSchedulers.mainThread());
-	}
+```java
+<T> Transformer<T, T> applySchedulers() {  
+	return observable -> observable.subscribeOn(Schedulers.io())
+	.observeOn(AndroidSchedulers.mainThread());
+}
+```
 
 > 当然要用`compose()`
 
@@ -68,21 +73,28 @@ tags:
 
 定义一个Result(Rxjava里面的)的集合
 
-	public final class Results {
-	private static final Func1<Result<?>, Boolean> SUCCESSFUL =
-          result -> !result.isError() && result.response().isSuccessful();
+```java
+public final class Results {
+private static final Func1<Result<?>, Boolean> SUCCESSFUL =
+      result -> !result.isError() && result.response().isSuccessful();
 
-		public static Func1<Result<?>, Boolean> isSuccessful() {
-    		return SUCCESSFUL;
-		}
-		private Results() {
-    	throw new AssertionError("No instances.");
-		}
+	public static Func1<Result<?>, Boolean> isSuccessful() {
+		return SUCCESSFUL;
 	}
+	private Results() {
+	throw new AssertionError("No instances.");
+	}
+}
+```
+
 
 最后我们在显示数据的时候就可以先过滤一下:
 
-       resultObservable.filter(Results.isSuccessful()).subscribe(adpter) //
+```java
+resultObservable.filter(Results.isSuccessful()).subscribe(adpter) //
+
+```
+
 
 > 这里订阅了一个adapter
 

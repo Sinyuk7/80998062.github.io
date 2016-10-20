@@ -28,29 +28,32 @@ tags:
 
 > 其实好像okhttp里面本来就有一个authenticator 之后去看看
 
-	@Singleton
-	public final class OauthInterceptor implements Interceptor {
-	    private Preference<String> mAccessToken;
+```java
+@Singleton
+public final class OauthInterceptor implements Interceptor {
+    private Preference<String> mAccessToken;
 
-	    public OauthInterceptor(@Token Preference<String> accessToken) {
-	        Timber.tag("OauthInterceptor");
-	        this.mAccessToken = accessToken;
-	    }
+    public OauthInterceptor(@Token Preference<String> accessToken) {
+        Timber.tag("OauthInterceptor");
+        this.mAccessToken = accessToken;
+    }
 
-	    @Override
-	    public Response intercept(Chain chain) throws IOException {
-	        Request.Builder builder = chain.request().newBuilder();
-	        if (mAccessToken.isSet()) {
-	            Timber.d("Add access token : %s", mAccessToken.get());
-	            builder.header("Authorization", DribbleApi.ACCESS_TYPE + " " + mAccessToken.get());
-	        } else {
-	            Timber.d("Default access token ");
-	            builder.header("Authorization", DribbleApi.ACCESS_TYPE + " " + BuildConfig.DRIBBBLE_CLIENT_ACCESS_TOKEN);
-	        }
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+        Request.Builder builder = chain.request().newBuilder();
+        if (mAccessToken.isSet()) {
+            Timber.d("Add access token : %s", mAccessToken.get());
+            builder.header("Authorization", DribbleApi.ACCESS_TYPE + " " + mAccessToken.get());
+        } else {
+            Timber.d("Default access token ");
+            builder.header("Authorization", DribbleApi.ACCESS_TYPE + " " + BuildConfig.DRIBBBLE_CLIENT_ACCESS_TOKEN);
+        }
 
-	        return chain.proceed(builder.build());
-	    }
-	}
+        return chain.proceed(builder.build());
+    }
+}
+```
+
 
 这里就是当登录的时候看看sp里面有没有保存access token 没有的话就用游客的token
 
@@ -81,36 +84,39 @@ tags:
 
 > [你应该了解的 一些web缓存相关的概念.](http://www.cnblogs.com/_franky/archive/2011/11/23/2260109.html)
 
+```java
 
-        final Interceptor REWRITE_RESPONSE_INTERCEPTOR = chain -> {
-            Response originalResponse = chain.proceed(chain.request());
-            String cacheControl = originalResponse.header("Cache-Control");
-            if (cacheControl == null || cacheControl.contains("no-store") || cacheControl.contains("no-cache") ||
-                    cacheControl.contains("must-revalidate") || cacheControl.contains("max-age=0")) {
-                return originalResponse.newBuilder()
-                        .header("Cache-Control", "public, max-age=" + 0)
-                        .build();
-            } else {
-                return originalResponse;
-            }
-        };
+final Interceptor REWRITE_RESPONSE_INTERCEPTOR = chain -> {
+    Response originalResponse = chain.proceed(chain.request());
+    String cacheControl = originalResponse.header("Cache-Control");
+    if (cacheControl == null || cacheControl.contains("no-store") || cacheControl.contains("no-cache") ||
+            cacheControl.contains("must-revalidate") || cacheControl.contains("max-age=0")) {
+        return originalResponse.newBuilder()
+                .header("Cache-Control", "public, max-age=" + 0)
+                .build();
+    } else {
+        return originalResponse;
+    }
+};
 
-        final Interceptor OFFLINE_INTERCEPTOR = chain -> {
-            Request request = chain.request();
+final Interceptor OFFLINE_INTERCEPTOR = chain -> {
+    Request request = chain.request();
 
-            if (!NetWorkUtils.isNetworkConnection(application)) {
-                Timber.d("Offline Rewriting Request");
-                int maxStale = 60 * 60 * 24 * 3;
-                request = request.newBuilder()
-                        .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
-                        .build();
-            }
-            return chain.proceed(request);
-        };
+    if (!NetWorkUtils.isNetworkConnection(application)) {
+        Timber.d("Offline Rewriting Request");
+        int maxStale = 60 * 60 * 24 * 3;
+        request = request.newBuilder()
+                .header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                .build();
+    }
+    return chain.proceed(request);
+};
 
-        builder.cache(cache)
-                .addNetworkInterceptor(REWRITE_RESPONSE_INTERCEPTOR)
-                .addInterceptor(OFFLINE_INTERCEPTOR);
+builder.cache(cache)
+        .addNetworkInterceptor(REWRITE_RESPONSE_INTERCEPTOR)
+        .addInterceptor(OFFLINE_INTERCEPTOR);
+
+```
 
 上面要注意的就是`addNetworkInterceptor()`和`addInterceptor()`的区别了
 

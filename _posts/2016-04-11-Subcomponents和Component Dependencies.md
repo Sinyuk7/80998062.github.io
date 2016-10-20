@@ -31,29 +31,31 @@ Subcomponents
 ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看出来:
 
 ```java
-	@Module
-	public class ModuleA {
-	    @Provides
-	    public SomeClassA1 provideSomeClassA1() {
-	        return new SomeClassA1();
-	    }
-	}
-	@Module
-	public class ModuleB {
-	    @Provides
-	    public SomeClassB1 provideSomeClassB1(SomeClassA1 someClassA1) {
-	        return new SomeClassB1(someClassA1);
-	    }
-	}
-	public class SomeClassA1 {
-	    public SomeClassA1() {}
-	}
-	public class SomeClassB1 {
-	    private SomeClassA1 someClassA1;
-	public SomeClassB1(SomeClassA1 someClassA1) {
-	        this.someClassA1 = someClassA1;
-	    }
-	}
+
+@Module
+public class ModuleA {
+    @Provides
+    public SomeClassA1 provideSomeClassA1() {
+        return new SomeClassA1();
+    }
+}
+@Module
+public class ModuleB {
+    @Provides
+    public SomeClassB1 provideSomeClassB1(SomeClassA1 someClassA1) {
+        return new SomeClassB1(someClassA1);
+    }
+}
+public class SomeClassA1 {
+    public SomeClassA1() {}
+}
+public class SomeClassB1 {
+    private SomeClassA1 someClassA1;
+public SomeClassB1(SomeClassA1 someClassA1) {
+        this.someClassA1 = someClassA1;
+    }
+}
+
 ```
 
 
@@ -67,36 +69,36 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 
 
 ```java
-	public class ComponentDependency {
 
-	    @Component(modules = ModuleA.class)
-	    public interface ComponentA {
-	        SomeClassA1 someClassA1();
-	    }
+public class ComponentDependency {
+    @Component(modules = ModuleA.class)
+    public interface ComponentA {
+        SomeClassA1 someClassA1();
+    }
 
-	@Component(modules = ModuleB.class, dependencies = ComponentA.class)
+@Component(modules = ModuleB.class, dependencies = ComponentA.class)
+    public interface ComponentB {
+        SomeClassB1 someClassB1();
+    }
 
-	    public interface ComponentB {
-	        SomeClassB1 someClassB1();
-	    }
+public static void main(String[] args) {
 
-	public static void main(String[] args) {
+        ModuleA moduleA = new ModuleA();
 
-	        ModuleA moduleA = new ModuleA();
+        ComponentA componentA =
+			DaggerComponentDependency_ComponentA.builder()
+                .moduleA(moduleA)
+                .build();
 
-	        ComponentA componentA =
-				DaggerComponentDependency_ComponentA.builder()
-	                .moduleA(moduleA)
-	                .build();
+		ModuleB moduleB = new ModuleB();
+        ComponentB componentB =
+			DaggerComponentDependency_ComponentB.builder()
+                .moduleB(moduleB)
+                .componentA(componentA)
+                .build();
+    }
+}
 
-			ModuleB moduleB = new ModuleB();
-	        ComponentB componentB =
-				DaggerComponentDependency_ComponentB.builder()
-	                .moduleB(moduleB)
-	                .componentA(componentA)
-	                .build();
-	    }
-	}
 ```
 
 
@@ -108,28 +110,30 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 - ComponentA中必须声明ModuleB. 从而绑定了2个components.
 
 ```java
-	public class SubComponent {
-	    @Component(modules = {ModuleA.class, ModuleB.class})
-	    public interface ComponentA {
-	        ComponentB componentB(ModuleB moduleB);
-	    }
 
-	    @Subcomponent(modules = ModuleB.class)
-	    public interface ComponentB {
-	        SomeClassB1 someClassB1();
-	    }
+public class SubComponent {
+    @Component(modules = {ModuleA.class, ModuleB.class})
+    public interface ComponentA {
+        ComponentB componentB(ModuleB moduleB);
+    }
 
-	    public static void main(String[] args) {
-	        ModuleA moduleA = new ModuleA();
-	        ModuleB moduleB = new ModuleB();
-	        ComponentA componentA = DaggerSubComponent_ComponentA.builder()
-	                .moduleA(moduleA)
-	                .moduleB(moduleB)
-	                .build();
+    @Subcomponent(modules = ModuleB.class)
+    public interface ComponentB {
+        SomeClassB1 someClassB1();
+    }
 
-	        ComponentB componentB = componentA.componentB(moduleB);
-	    }
-	}
+    public static void main(String[] args) {
+        ModuleA moduleA = new ModuleA();
+        ModuleB moduleB = new ModuleB();
+        ComponentA componentA = DaggerSubComponent_ComponentA.builder()
+                .moduleA(moduleA)
+                .moduleB(moduleB)
+                .build();
+
+        ComponentB componentB = componentA.componentB(moduleB);
+    }
+}
+
 ```
 
 

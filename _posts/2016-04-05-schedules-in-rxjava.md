@@ -32,25 +32,31 @@ tags:
 
 如果我们有一段这样的序列:
 
-`Observable`
+```java
 
-`.map()                    // 操作1`
+Observable
 
-`.flatMap()                // 操作2`
-`.subscribeOn(io)`
+.map()                    // 操作1
 
-`.map()                    //操作3`
+.flatMap()                // 操作2
 
-`.flatMap()                //操作4`
+.subscribeOn(io)
 
-`.observeOn(main)`
+.map()                    //操作3
 
-`.map()                    //操作5`
+.flatMap()                //操作4
 
-`.flatMap()                //操作6`
-`.subscribeOn(io)        //特别注意!`
+.observeOn(main)
 
-`.subscribe(handleData)`
+.map()                    //操作5
+
+.flatMap()                //操作6
+
+.subscribeOn(io)        //特别注意!
+
+.subscribe(handleData)
+
+```
 
 假设这里我们是在主线程上调用这段代码，
 
