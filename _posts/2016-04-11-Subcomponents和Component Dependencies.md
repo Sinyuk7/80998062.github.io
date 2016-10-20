@@ -18,7 +18,7 @@ Component Dependencies:
 - 让两个components相互独立
 - 需要显示的暴露出它们之间的依赖
 
-Subcomponents 
+Subcomponents
 
 - 关联两个components
 - **不**需要显示的暴露出它们之间的依赖
@@ -30,7 +30,7 @@ Subcomponents
 
 ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看出来:
 
-
+```java
 	@Module
 	public class ModuleA {
 	    @Provides
@@ -54,10 +54,10 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 	        this.someClassA1 = someClassA1;
 	    }
 	}
+```
 
 
-
-> 先是 Component Dependency 
+> 先是 Component Dependency
 
 
 关键点:
@@ -66,7 +66,7 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 - 但是ComponentA中不用声明ModuleB.2个Components保持独立
 
 
-	
+```java
 	public class ComponentDependency {
 
 	    @Component(modules = ModuleA.class)
@@ -84,20 +84,20 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 
 	        ModuleA moduleA = new ModuleA();
 
-	        ComponentA componentA = 
+	        ComponentA componentA =
 				DaggerComponentDependency_ComponentA.builder()
 	                .moduleA(moduleA)
 	                .build();
 
 			ModuleB moduleB = new ModuleB();
-	        ComponentB componentB = 
+	        ComponentB componentB =
 				DaggerComponentDependency_ComponentB.builder()
 	                .moduleB(moduleB)
 	                .componentA(componentA)
 	                .build();
 	    }
 	}
-
+```
 
 
 > 然后的SubComponent的栗子
@@ -106,18 +106,19 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 
 - SomeClassB1依赖于SomeClassA1.但是ComponentB不用显示的暴露出这个.
 - ComponentA中必须声明ModuleB. 从而绑定了2个components.
-	
+
+```java
 	public class SubComponent {
 	    @Component(modules = {ModuleA.class, ModuleB.class})
 	    public interface ComponentA {
 	        ComponentB componentB(ModuleB moduleB);
 	    }
-	
+
 	    @Subcomponent(modules = ModuleB.class)
 	    public interface ComponentB {
 	        SomeClassB1 someClassB1();
 	    }
-	
+
 	    public static void main(String[] args) {
 	        ModuleA moduleA = new ModuleA();
 	        ModuleB moduleB = new ModuleB();
@@ -125,11 +126,11 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 	                .moduleA(moduleA)
 	                .moduleB(moduleB)
 	                .build();
-	
+
 	        ComponentB componentB = componentA.componentB(moduleB);
 	    }
 	}
-
+```
 
 
  > 注意ComponentB用了A的依赖,然后在builder()那里:
@@ -155,6 +156,3 @@ ClassB1依赖于ClassA1,从ModuleB的`provideSomeClassB1()`方法里面可以看
 > 但是我基本上只用@SubComponent 因为可以减少方法数
 
 传送门:[Dagger 2 on production — reducing methods count](https://medium.com/azimolabs/dagger-2-on-production-reducing-methods-count-5a13ff671e30#.8u97jl3ev)
-
-
-
