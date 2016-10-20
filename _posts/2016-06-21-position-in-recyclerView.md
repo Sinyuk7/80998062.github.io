@@ -4,7 +4,7 @@ title:      "Position in RecyclerView"
 subtitle:   "一个Exception"
 date:       2016-06-21
 author:     "Sinyuk"
-header-img: ""
+header-img: "img/2016-06-21.jpg"
 tags:
     - Android
     - RecyclerView
