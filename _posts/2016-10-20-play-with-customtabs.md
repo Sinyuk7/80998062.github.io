@@ -36,6 +36,7 @@ tags:
 
 然后没几个网站这么有心的....
 
+
 ![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/post-play-with-customtabs/sample.jpg)
 
 
@@ -122,11 +123,11 @@ public void bindCustomTabsService(Activity activity) {
 所以我们通过PackageManager把所有能支持ACTION_VIEW的intent的
 ,同时支持custom tabs的service调用的包名列出来
 
-> 同理,比如说这是一个知乎的链接,我们就应该用知乎app打开它(如果安装了的话)
+> 另外,为了一个更好的用户体验
+> 
+> 比如说这是一个知乎的链接,我们就应该用知乎app打开它(如果安装了的话)
 
-> 当然你用custom tabs打开可能也会跳转吧 = = 没试过
-
-> 做法应该是在`onNewIntent()`里面判断一下Uri的scheme...如果是zhihu就调用知乎app
+> 所以最好在跳转的时候判断一下Uri...如果是zhihu就调用知乎app
 
 
 回到刚才的代码...`onServiceConnected()`这里
@@ -218,6 +219,6 @@ private void handleUrl(String url) {
 
 就这样....
 
-> 以上是我在自己的椰壳日报里尝试用custom tabs的....流水账
+> 这就是我怎么在椰壳日报里尝试用custom tabs的....
 
 具体例子可见:[YukDaily](https://github.com/80998062/YukDaily)
