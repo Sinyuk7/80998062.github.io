@@ -45,9 +45,6 @@ fooObservable = barObservable.ofType(Integer).map({it*2}).compose(new myTransfor
 
 可以看到Transformer需要和`compose()`一起使用
 
-> compose()这个操作符用来处理表单的逻辑的时候超方便
-
-
 > 然后大家基本上都是看这篇东西的:
 
 > - [“Don’t break the chain: use RxJava’s compose() operator”](http://blog.danlew.net/2015/03/02/dont-break-the-chain/) by Dan Lew
