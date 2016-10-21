@@ -36,6 +36,9 @@ tags:
 
 然后没几个网站这么有心的....
 
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/post-play-with-customtabs/sample.jpg)
+
+
 > 最一开始是在浏览V2EX的时候发现加了这个特性,后来知乎也有了
 
 > 反正就是...挺喜欢这些细节的
