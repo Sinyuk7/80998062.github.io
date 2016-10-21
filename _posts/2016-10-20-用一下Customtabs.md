@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "用一下Customtabs"
-subtitle:   "Try something new"
+subtitle:   "Play with custom tabs"
 date:       2016-10-20
 author:     "Sinyuk"
 header-img: "img/2016-10-20.jpg"
@@ -9,7 +9,6 @@ tags:
     - Android
     - Customtabs
     - WebView
-    - 
 
 ---
 
@@ -63,7 +62,7 @@ tags:
 
 ---
 
- 
+
 改颜色和设置动画就不说了....
 
 其他的我自己也说不清楚...分析下官方给的[Demo](https://github.com/GoogleChrome/custom-tabs-client) = = 哈哈哈
