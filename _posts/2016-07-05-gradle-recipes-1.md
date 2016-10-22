@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "Gradle Recipes for Android Section 1"
+title:      "Gradle Recipes 1"
 subtitle:   "笔记笔记"
 date:       2016-7-05
 author:     "Sinyuk"
-header-img: "2016-07-05.jpg"
+header-img: "img/2016-07-05.jpg"
 tags:
     - Android
     - Gradle
