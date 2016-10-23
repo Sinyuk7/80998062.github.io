@@ -2,9 +2,9 @@
 layout:     post
 title:      "Gradle Recipes 1"
 subtitle:   "笔记笔记"
-date:       2016-7-05
+date:       2015-12-01
 author:     "Sinyuk"
-header-img: "img/2016-07-05.jpg"
+header-img: "img/2015-12-01.jpg"
 tags:
     - Android
     - Gradle
@@ -39,7 +39,6 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
 - distributionUrl: 说明wrapper会下载和安装2.10版本的Gradle
 - 在第一次运行之后,Gradle的部署文件会被缓存在zipStorePath路径下(位于zipStoreBase目录)
 - 之后所有的编译用的都是缓存的版本
-- 
 
 我们通过命令行来执行wrapper
 
@@ -56,9 +55,9 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
 ```groovy
 
 dependencies {
-compile fileTree(include: ['*.jar'], dir: 'libs')
-testCompile 'junit:junit:4.12'
-compile 'com.android.support:appcompat-v7:23.3.0'
+	compile fileTree(include: ['*.jar'], dir: 'libs')
+	testCompile 'junit:junit:4.12'
+	compile 'com.android.support:appcompat-v7:23.3.0'
 }
 
 ```
@@ -86,7 +85,8 @@ compile 'com.android.support:appcompat-v7:23.3.0'
 ```groovy
 
 dependencies {
-compile files('libs/a.jar', 'libs/b.jar')
+	compile files('libs/a.jar', 'libs/b.jar')
+}
 
 ```
 
@@ -120,8 +120,8 @@ No dependencies
 ```groovy
 
 dependencies {
-runtime group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.0.1',
-transitive: false
+	runtime group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.0.1',
+	transitive: false
 }
 
 ```
@@ -131,10 +131,10 @@ transitive: false
 ```grovvy
 
 dependencies {
-androidTestCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
-exclude group: 'org.codehaus.groovy'
-exclude group: 'junit'
-}
+	androidTestCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+		exclude group: 'org.codehaus.groovy'
+		exclude group: 'junit'
+	}
 }
 
 ```
@@ -146,8 +146,8 @@ exclude group: 'junit'
 ```grovvy
 
 dependencies {
-compile 'org.codehaus.groovy:groovy-all:2.4.4@jar'
-compile group: 'org.codehaus.groovy', name: 'groovy-all',version: '2.4.4', ext: 'jar'
+	compile 'org.codehaus.groovy:groovy-all:2.4.4@jar'
+	compile group: 'org.codehaus.groovy', name: 'groovy-all',version: '2.4.4', ext: 'jar'
 }
 
 ```
@@ -170,7 +170,7 @@ compile group: 'org.codehaus.groovy', name: 'groovy-all',version: '2.4.4', ext: 
 
 ```
 repositories {
-jcenter()
+	jcenter()
 }
 
 ```
@@ -184,9 +184,9 @@ jcenter()
 ```groovy
 
 repositories {
-flatDir {
-dirs 'lib'
-	}
+	flatDir {
+		dirs 'lib'
+		}
 }
 
 ```
