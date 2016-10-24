@@ -8,12 +8,12 @@ header-img: "img/2015-11-05.jpg"
 tags:
     - Android
     - View
-    
+
 ---
 
 ##自定义View的onMeasure()
 
-> Custom View
+> Custom View's onMeasure() 
 
 首先,我们来看一下View的onMeasure方法:
 
@@ -57,7 +57,7 @@ public static int getDefaultSize(int size, int measureSpec) {
 
 - AT_MOST和EXACTLY的情况: 返回measureSec中的specSize
  - specSize就是View测量过后的大小
- 
+
 - UNSPECIFIED的情况,View的大小为参数size,即`getSuggestedMinimumWidth()`
 
 ```java
@@ -114,7 +114,7 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     int widthSpecSize = MeasureSpec.getSize(widthMeasureSpec);
     int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
     int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
-    
+
     if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST){
         setMeasuredDimension(mWidth,mHeight);
     }else if (widthSpecMode == MeasureSpec.AT_MOST ){
@@ -129,4 +129,3 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 - 在wrap_conent的时候我们给View定义一个默认的内部宽/高
 
 - 非wrap_content的时候我们沿用系统的测量值即可
-
