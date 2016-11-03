@@ -12,7 +12,7 @@ tags:
 ---
 
 
-#Some DesignTime Attributes
+# Some DesignTime Attributes
 
 > 黑魔法来了
 
@@ -27,7 +27,7 @@ tags:
 > 然后先说一些常见的:
 
 
-##tools:igonre
+## tools:igonre
 
 
 ```xml
@@ -39,7 +39,7 @@ tags:
 > 用于:Lint
 
 
-##tools:targetApi
+## tools:targetApi
 
 确定你的Api level(可以是Integer或者是名字
 
@@ -53,7 +53,7 @@ tags:
 
 
 
-##tools:local
+## tools:local
 
 作为xml的根元素,指定语言.可以对非English的文件关闭拼写检查
 
@@ -67,7 +67,7 @@ tags:
 
 
 
-##tools:context
+## tools:context
 
 root element 这样在设计时编辑器就会为该布局设置context所用的主题
 
@@ -81,7 +81,7 @@ root element 这样在设计时编辑器就会为该布局设置context所用的
 > 用于:Layout Editor,Lint
 
 
-##tools:layout
+## tools:layout
 
 用在<fragment>标签里,可以在设计时就预览界面
 
@@ -94,7 +94,7 @@ root element 这样在设计时编辑器就会为该布局设置context所用的
 > 用于:Layout Editors
 
 
-##tools:listitem / listheader / listfooter
+## tools:listitem / listheader / listfooter
 
 这几个属性可以用在<ListView>标签里(包括其他AdapterView 比如<GridView> <ExpandableListView> 等等),来确定list items的布局.在预览的时候这个tool会填充一下假的数据作为内容.
 
@@ -111,7 +111,7 @@ root element 这样在设计时编辑器就会为该布局设置context所用的
 > 用于:Layout Editors
 
 
-##tools:showIn
+## tools:showIn
 
 根元素.用在一个**被**include的布局里.在设计时它父布局也会被渲染在这个界面
 
@@ -130,7 +130,7 @@ root element 这样在设计时编辑器就会为该布局设置context所用的
 
 
 
-##tools:menu
+## tools:menu
 
 根元素.用来确认显示在ActionBar上的menu.当然AS也会通过tools:context中的上下文来找到`onCreateMenu()`方法从而渲染出menu.
 
@@ -156,6 +156,6 @@ root element 这样在设计时编辑器就会为该布局设置context所用的
 
 > 用于:Layout Editors
 
-##More
+## More
 
 还有一些`tools:shrink`,`tools:discard`等等都是用在Gradle plugin上的,感觉一般用不到,这里不提了...

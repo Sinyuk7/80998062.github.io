@@ -12,7 +12,7 @@ tags:
 
 ---
 
-#Retrofit and Okhttp
+# Retrofit and Okhttp
 
 之前都没用过Retrofit,发现是好方便啊...
 
@@ -20,7 +20,7 @@ tags:
 
 水一点东西
 
-##OAuth
+## OAuth
 
 关于授权的处理,基本就是用Interceptor了...
 
@@ -60,7 +60,7 @@ public final class OauthInterceptor implements Interceptor {
 > 当然虽然我是这么写把access token保存在sp里面,不知道在实际开发里面有更好的方法没
 
 
-##Service
+## Service
 
 一般的话我们都是要写两个service的
 
@@ -76,7 +76,7 @@ public final class OauthInterceptor implements Interceptor {
 > 感觉授权的请求有了缓存总觉得会有问题
 
 
-##缓存
+## 缓存
 
 这里直接上代码...免得暴露出我没什么web相关的知识
 
@@ -122,7 +122,7 @@ builder.cache(cache)
 
 > = =我也不记得了,反正它github的wiki里面有的...
 
-##TODO
+## TODO
 
 然后想起一个东西,一直不知道Retrofit是怎么取消请求的,本来感觉取消一个请求是挺容易的,一般这个请求会有个TAG
 

@@ -12,12 +12,12 @@ tags:
 ---
 
 
-#封装一下显示列表的Fragment#
+# 封装一下显示列表的Fragment#
 
 > 我的滑板鞋 时尚时尚最时尚
 
 
-##列表状态的切换##
+## 列表状态的切换##
 
 > 其实已经有很多开源的库封装了页面状态切换的代码,基本上都是通过`addView()`和`removeView()`
 
@@ -63,7 +63,7 @@ public class BetterViewAnimator extends ViewAnimator {
 
 ```
 
-##布局##
+## 布局
 
 然后你就可以像这样写一个通用的布局
 
@@ -90,7 +90,7 @@ android:layout_height="match_parent">
 
 > 不过header的话最好不要写死,让它也可以被recyle最好吧....
 
-##BaseListFragment##
+## BaseListFragment
 
 
 然后就用一个(Fragment轻量点吧),比如叫BaseListFragment
@@ -140,7 +140,7 @@ protected abstract void fetchData();
 然后子类想自己处理的时候加上super.xxx()就好了
 
 
-##再比如##
+## 再比如##
 
 当然在这个类里面你还可以写好用来加载更多的ScrollListener
 
@@ -171,7 +171,7 @@ protected RecyclerView.OnScrollListener getLoadMoreListener() {
 
 
 
-##有个坑##
+## 有个坑##
 
 判断是否要显示一个EmptyView的时候,我们可以像这样:
 

@@ -13,7 +13,7 @@ tags:
 ---
 
 
-Component Dependencies:
+# Component Dependencies:
 
 - 让两个components相互独立
 - 需要显示的暴露出它们之间的依赖
@@ -62,7 +62,7 @@ public SomeClassB1(SomeClassA1 someClassA1) {
 > 先是 Component Dependency
 
 
-关键点:
+## 关键点:
 
 - SomeClassB1依赖于SomeClassA1. ComponentA要显示的暴露出这个.
 - 但是ComponentA中不用声明ModuleB.2个Components保持独立
@@ -104,7 +104,7 @@ public static void main(String[] args) {
 
 > 然后的SubComponent的栗子
 
-关键点:
+## 关键点:
 
 - SomeClassB1依赖于SomeClassA1.但是ComponentB不用显示的暴露出这个.
 - ComponentA中必须声明ModuleB. 从而绑定了2个components.
@@ -144,7 +144,7 @@ public class SubComponent {
 ---
 
 
-##这两种方法的区别？
+## 这两种方法的区别？
 
 
 

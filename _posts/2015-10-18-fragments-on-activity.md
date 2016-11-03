@@ -10,9 +10,9 @@ tags:
     - Activity
 
 ---
-#Fragments on Activity
+# Fragments on Activity
 
-##LauchMode
+## LauchMode
 
 	1. Standard
 	2. SingleTop
@@ -33,7 +33,7 @@ if the activity is finishing, returns true; else returns false.
 
 > 判断Activity是否finish，自己调用或者某种因素请求finish，经常用在onPause函数里面
 
-##onPause()
+## onPause()
 
 一般建议在onPause()中停止一切动画效果，或者其他消耗cpu的行为
 
@@ -41,13 +41,13 @@ if the activity is finishing, returns true; else returns false.
 
 释放系统资源，比如广播接受者，传感处理器（gps等），或者其他影响电池消耗的东西，因为在pause状态下用户并不需要他们。
 
-##finish()
+## finish()
 
 一个Activity在Finish的时候还在接受Broadcast Handle还在sendMessage或者还在执行transition Animation,
 所以最好调用removeAllCallbackAndMessage(this)
 
 
-##overridePendingTransition()
+## overridePendingTransition()
 
 实现两个 Activity 切换时的动画。在Activity中使用
 
@@ -59,7 +59,7 @@ if the activity is finishing, returns true; else returns false.
 > 2、而且在 2.1 以上版本有效
 > 3、手机设置-显示-动画，要开启状态
 
-##onPostCreate()
+## onPostCreate()
 
 > Called when activity start-up is complete (after onStart() and onRestoreInstanceState(Bundle) have been called). Applications will generally not implement this method; it is intended for system classes to do final initialization after application code has run.
 

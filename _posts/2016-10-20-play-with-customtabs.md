@@ -13,11 +13,11 @@ tags:
 ---
 
 
-#用一下Customtabs
+# 用一下Customtabs
 
 > Try something new
 
-##关于Customtabs
+## 关于Customtabs
 
 其实在国内customtabs的作用真的不大...因为没几个人在手机上用chrome的
 
@@ -44,7 +44,7 @@ tags:
 
 > 反正就是...挺喜欢这些细节的
 
-#功能介绍
+# 功能介绍
 
 - UI定制
 

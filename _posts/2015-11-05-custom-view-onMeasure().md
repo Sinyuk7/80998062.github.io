@@ -11,7 +11,7 @@ tags:
 
 ---
 
-##自定义View的onMeasure()
+## 自定义View的onMeasure()
 
 > Custom View's onMeasure() 
 
@@ -93,7 +93,7 @@ public int getMinimumWidth() {
 
 
 
-##所以
+## 所以
 
 直接继承View的控件要重写onMeasure方法并设置wrap_content时候的大小,否则在布局中使用wrap_content的时候就相当于使用了match_parent;
 

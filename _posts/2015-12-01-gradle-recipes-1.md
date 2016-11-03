@@ -11,7 +11,7 @@ tags:
 
 ---
 
-#Gradle Recipes for Android 1
+# Gradle Recipes for Android 1
 
 > 赶紧看完这本书
 
@@ -48,7 +48,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.10-all.zip
 - gradlew.bat 在Windows上
 
 
-##加入依赖
+## 加入依赖
 
 我们在app目录的build.gradle文件里加入其它库
 
@@ -165,7 +165,7 @@ dependencies {
 > 那如果不是Maven上的呢
 
 
-##Configuring Repositories
+## Configuring Repositories
 
 
 ```

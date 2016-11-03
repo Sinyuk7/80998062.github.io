@@ -12,11 +12,11 @@ tags:
 ---
 
 
-#Memory Leaks
+# Memory Leaks
 
 > 内存泄露
 
-##静态变量
+## 静态变量
 
 ```java
 
@@ -27,7 +27,7 @@ private static Context sContext
 > 静态变量无法被释放
 
 
-##单例模式
+## 单例模式
 
 因为单例模式的特点是生命周期和Application保持一致,所以当Activity对象被销毁的时候,它还会持有context的引用
 
@@ -39,7 +39,7 @@ private static Context sContext
 如果你在Activity的`onDestory()`中没有停止这个动画,那么这个View就会被动画持有,而View有持有Activity的引用,所以发生了内存泄露
 
 
-##Handler
+## Handler
 
 当Android应用首次启动的时候,framework会在UI thread创建一个Looper对象.
 
@@ -63,7 +63,7 @@ outer class. Static inner classes, on the other hand, do not.
 - handler里面的Runnable也会导致内存泄露:**静态的匿名类会隐式的持有外部类的引用**
 
 
-##解决方式
+## 解决方式
 
 > 使用弱引用
 

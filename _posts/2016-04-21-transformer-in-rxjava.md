@@ -11,7 +11,7 @@ tags:
 
 ---
 
-#Transformer in Rxjava
+# Transformer in Rxjava
 
 看了[小鄧子](http://www.jianshu.com/users/df40282480b4/latest_articles)的博客以及他引述的其他文章
 
@@ -24,7 +24,7 @@ tags:
 
 
 
-##Opertor
+## Opertor
 
 说到Transformer,先提一下Operator,implement你自己的Opertor很简单,用处也更transformer差不多:
 
@@ -34,7 +34,7 @@ fooObservable = barObservable.ofType(Integer).map({it*2}).lift(new myOperator<T>
 
 只是要用`lift()`来把它插入整个chain
 
-##Transformer
+## Transformer
 
 然后Transformer的话,其实文档都叫它Transformational Operator了
 
@@ -50,7 +50,7 @@ fooObservable = barObservable.ofType(Integer).map({it*2}).compose(new myTransfor
 > - [“Don’t break the chain: use RxJava’s compose() operator”](http://blog.danlew.net/2015/03/02/dont-break-the-chain/) by Dan Lew
 
 
-##Tips
+## Tips
 
 -  你自定义的Operator应该检查`Subscriber's isUnsubscribed()`,接触绑定之后就不该xxx了
 

@@ -11,12 +11,12 @@ tags:
 
 ---
 
-#Gradle Recipes for Android 2
+# Gradle Recipes for Android 2
 
 > 很关键这一张
 
 
-##设置你的工程
+## 设置你的工程
 
 - 我们可以在build.gradle文件里面自定义一些属性,用`ext`关键词
 
@@ -153,7 +153,7 @@ dependencies {
 算了....不推荐这个方法 = =
 
 
-##更新Gradle
+## 更新Gradle
 
 有2个方法
 
@@ -206,7 +206,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.12-bin.zip
 将distributionUrl里面的版本号换成你想要的就可以了
 
 
-##共享设置
+## 共享设置
 
 在top-level的build文件中:
 

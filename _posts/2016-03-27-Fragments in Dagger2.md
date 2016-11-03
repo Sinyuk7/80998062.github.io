@@ -11,11 +11,11 @@ tags:
 
 ---
 
-#Fragments in Dagger2
+# Fragments in Dagger2
 
 > 笔记笔记
 
-##Inject
+## Inject
 
 使用`@Inject`的时候,不能用private修饰符修饰类的成员属性
 
@@ -24,7 +24,7 @@ tags:
 
 
 
-##Module 
+## Module 
 
 > 注解类
 
@@ -34,7 +34,7 @@ tags:
 
 
 
-##Qualifier
+## Qualifier
 
 > 解决依赖注入迷失的
 
@@ -54,7 +54,7 @@ tags:
 > 就可以用Qualifier了
 
 
-##Scope
+## Scope
 
 Scope起的更多是一个限制作用.
 
