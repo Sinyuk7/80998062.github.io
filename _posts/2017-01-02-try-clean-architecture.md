@@ -12,7 +12,7 @@ tags:
 
 
 
-# 一只小安卓Clean架构的实践以及年终总结
+# 一只小安卓的Clean架构实践以及年终总结
 
 
 
@@ -223,7 +223,7 @@ dependencies {
 
 **remote:**
 
-顾名思义嘛,这就是RemoteDataSource,在这里配置和封装了(对于我来说)OkHttp和Retrofit的接口
+顾名思义嘛,这就是RemoteDataSource,在这里配置和封装了(对于我来说)`OkHttp`和`Retrofit`的接口
 
 **utils:**
 
@@ -426,7 +426,7 @@ View层其实没什么好讲的,就是Databinding+Dagger+MVP
 
 有很多分析的不错的文章,我也是看了好久才搞清楚的
 
-比如[**CameloeAnthon**](http://www.jianshu.com/users/44872eaffa8b/latest_articles)在简书上的那个系列~
+比如[**CameloeAnthony**](http://www.jianshu.com/users/44872eaffa8b/latest_articles)在简书上的那个系列~
 
 ![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/dicha.jpg)
 
