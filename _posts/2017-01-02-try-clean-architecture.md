@@ -4,7 +4,7 @@ title:      "一只小安卓的Clean架构的实践以及年终总结"
 subtitle:   "新年快乐啦"
 date:       2017-01-02
 author:     "Sinyuk"
-header-img: "img/in-post/年终总结/bojack.jpg"
+header-img: "img/in-post/年终总结/_bojack.jpg"
 tags:
     - Architecture
     - Android
@@ -423,7 +423,7 @@ View层其实没什么好讲的,就是Databinding+Dagger+MVP
 
 **MVP:**
 
-基本上是照着Google的[android-architecture](https://github.com/googlesamples/android-architecture)写出来的 
+基本上是照着Google的[android-architecture](https://github.com/googlesamples/android-architecture)写出来的
 
 有很多分析的不错的文章,我也是看了好久才搞清楚的
 
@@ -435,7 +435,7 @@ View层其实没什么好讲的,就是Databinding+Dagger+MVP
 
 **EventBus:**
 
-项目里的事件总线用的是Eventbus. 
+项目里的事件总线用的是Eventbus.
 
 不过渐渐发现代码量一上去,各种event就会使逻辑变得很混乱
 
@@ -557,12 +557,3 @@ load(url).into(imageView);
 
 
 ![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/jiaban.png)
-
-
-
-
-
-
-
-
-
