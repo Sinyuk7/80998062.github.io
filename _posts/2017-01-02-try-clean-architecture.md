@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "一只小安卓的Clean架构的实践以及年终总结"
+title:      "一只小安卓的Clean架构实践以及年终总结"
 subtitle:   "新年快乐啦"
 date:       2017-01-02
 author:     "Sinyuk"
-header-img: "img/in-post/年终总结/_bojack.jpg"
+header-img: "img/in-post/年终总结/bojack.jpg"
 tags:
     - Architecture
     - Android
@@ -12,7 +12,7 @@ tags:
 
 
 
-# 一只小安卓的Clean架构的实践以及年终总结
+# 一只小安卓Clean架构的实践以及年终总结
 
 
 
@@ -188,7 +188,6 @@ dependencies {
 - 用例层从数据层获取数据
 - 在用例里面进行处理业务逻辑(虽然我发现一般的项目根本没有什么业务逻辑可言
 - 视图层从用例层获取数据然后显示在界面上
-
 
 
 ---
