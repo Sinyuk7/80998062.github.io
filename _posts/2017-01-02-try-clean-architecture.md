@@ -1,4 +1,18 @@
-# Andorid Clean架构,还有一只小安卓的年终总结
+---
+layout:     post
+title:      "一只小安卓的Clean架构的实践以及年终总结"
+subtitle:   "新年快乐啦"
+date:       2017-01-02
+author:     "Sinyuk"
+header-img: "img/in-post/年终总结/bojack.jpg"
+tags:
+    - Architecture
+    - Android
+---
+
+
+
+# 一只小安卓的Clean架构的实践以及年终总结
 
 
 
@@ -6,19 +20,15 @@
 
 从自学安卓到毕业🎓然后工作已经快一年多了吧
 
-
-
 这一年平时基本忙这公司的东西
 
 自己想写一些小项目,都是写了一点就废弃了
 
-感觉**完整**的项目对个人的提升不大,因为大部分时间都在造轮子
-
-
+>  感觉**完整**的项目对个人的提升不大,因为大部分时间都在造轮子
 
 总的来说,这一年还是做了一点微小的工作
 
-
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/年终总结/贡献.jpg)
 
 
 
@@ -26,17 +36,17 @@
 
 
 
-
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/年终总结/小安卓.jpeg)
 
 
 
 前后待了两个公司,都是小规模的创业公司
 
-至今都是1个人(或者2个人)开发项目,感觉一直都在很低效地工作
+至今都是1个人(或者2个人)开发项目,感觉一直都在很低效很低效地工作
 
+>  感觉android开发真是艰难啊,相比iOS
 
-
-先吐个槽, 感觉android开发真是艰难,相比iOS
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/effort.jpeg)
 
 
 
@@ -44,15 +54,19 @@
 
 当时并不能切身地感觉到它们的好处,现在想想真是图样图森破
 
-
-
 甚至以前我都不怎么喜欢用`Fragment`,因为发现`Fragment`很难管理
 
-现在我开始在项目里面大量的使用`Fragment`,因为多数情况下它们可以复用,可以节省我很多时间
+现在我开始在项目里面大量的使用`Fragment`,因为多数情况下它们可以复用,可以节省很多时间
 
-> 一个人开发项目,进度慢就只有自己加班😞
+> 一个人开发嘛,心里的苦只有自己知道😞
+>
+> 其实是所有的锅只能一个人背啦(哈哈
 
-也开始疯狂封装一些基类来复用,比如一个显示列表的`Fragment`基本就是传入一个ViewModel和一个Item的布局文件就可以了
+
+
+也开始疯狂封装一些基类来复用
+
+比如一个显示列表的`Fragment`基本就是传入一个ViewModel和一个Item的布局文件就可以了
 
 
 
@@ -76,7 +90,7 @@
 
 尽管各种架构前期总有一些额外的工作,但是之后的开发会变得很轻松
 
-在app体积不断增大的时候,让项目细分下来的codebase尽量小
+在app体积不断增大的时候,让项目细分下来的**codebase**尽量小
 
 
 
@@ -88,7 +102,7 @@
 
 ---
 
-Clean架构可以使你的代码有如下特性:
+**Clean架构**可以使你的代码有如下特性:
 
 - 独立于架构
 - 易于测试
@@ -97,45 +111,39 @@ Clean架构可以使你的代码有如下特性:
 - 独立于任何外部类库
 
 
-如果你还不了解Clean架构,肯定要先去看下这个:
+如果你还不了解**Clean架构**,肯定要先去看下这个:
 
 [Uncle Bob](https://8thlight.com/blog/uncle-bob/)的[The Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
 
 
 
-这里只是想讲讲自己关于Clean架构的一点实践,
+这里只是想讲讲自己关于**Clean架构**的一点实践,
 
 有问题大家一起探讨下...
 
-> 给大佬
-
-
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/dicha.jpg)
 
 ## 开始
 
-
-
 试着写了一个demo:[**Vincent**](https://github.com/80998062/Vicent)
 
-> 本来想做一个tubmlr样子的weibo, 写着写着发现渣浪对第三放开发者的限制太多了.
+虽然只写了一点点(然后废弃了=  =),但是**Clean架构**的样子感觉有了(我是这么觉得哈哈
+
+> 初衷是写一个tubmlr样子的weibo, 写着写着发现渣浪对第三放开发者的限制太多了.
 >
 > 发现授个权还要认证,还要申请一个蓝V的微博…我感觉好难受
 
 
 
-虽然只写了一点点,但是clean架构的样子感觉有了(我是这么觉得哈哈
-
-
-
 首先这张图你肯定见过...
 
-> 上图 
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/chart.jpg)
 
 
 
- 其实更直观的,我们直接就着代码来看3个module之间的依赖:
+ 其实更直观的,我们直接就着代码来看3个**module**之间的依赖:
 
-- data(数据层
+- **data**(数据层
 
 ```groovy
 apply plugin: 'java'
@@ -154,7 +162,7 @@ dependencies {
 
 
 
-- usecase(用例层 当然你叫domain也行
+- **usecase**(用例层 当然你叫domain也行
 
 ```groovy
 apply plugin: 'java'
@@ -163,9 +171,9 @@ dependencies {
 }
 ```
 
-> data和usecase层都应该是java代码,跟android framework无关
+> **data**和**usecase**层都应该是java代码,跟**Android Framework**无关
 
-- app(就是我们平时写的app module
+- **app**(就是我们平时写的那个app
 
 ```groovy
   dependencies {
@@ -175,25 +183,25 @@ dependencies {
   }
 ```
 
-你们感受一下:
+然后你们感受一下:
 
-然后就基本能理解用例层从数据层获取数据,然后在这里进行处理
-
-> 当然我发现一般的项目根本没有什么业务逻辑可以在这里写的...
-
-视图层从用例层获取数据然后显示在界面上
+- 用例层从数据层获取数据
+- 在用例里面进行处理业务逻辑(虽然我发现一般的项目根本没有什么业务逻辑可言
+- 视图层从用例层获取数据然后显示在界面上
 
 
-
-然后讲一下各种乱七八糟的东西
 
 ---
 
 ## Standing
 
+> 然后讲一下各种乱七八糟的东西
+
+
+
 **data层**
 
-![http://west.cdn.gui-quan.com/media/upload/315e592927c8e8f62822e9e7cfcde5912d0793e5](data)
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/data层.jpg)
 
 
 
@@ -221,11 +229,8 @@ dependencies {
 **utils:**
 
 - 自定义了一些`transformer`,比如切换线程和全局的错误处理
-- 网络请求的Interceptor
+- 网络请求的`Interceptor`
 - 其他乱七八糟的
-
-
-
 
 
 
@@ -234,19 +239,29 @@ dependencies {
 
 因为可以在这里直接用一个java类来测试api,而不是编译整个项目...
 
-每次叫我们python过来看logcat的时候 = = 他都会在旁边发牢骚: android编译怎么会这么慢....
+不对不对,是API...有一次我们的python过来说你Api这个类应该全大写...
 
->  卧槽我也不想啊
+> 每次叫我们python过来看logcat的时候 = = 他都会在旁边发牢骚: 安卓编译怎么会这么慢....
+>
+> 卧槽我也不想啊
 
-当然你会说用postman不就好了...
+当然你会说用**Postman**不就好了...
 
-但是配置了OkHttp和Retrofit之后,就能有一个App运行时的环境嘛...
+但是这样能有一个配置了`OkHttp`和`Retrofit`的环境嘛...
 
 
+
+---
 
 **usecase层**
 
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/usecase层.jpg)
+
+
+
 > 用例层就比较简单了...因为一般的应用都没有什么业务逻辑
+
+
 
 举个🌰
 
@@ -289,11 +304,10 @@ public class GetTimelineUsecase extends Usecase<Timeline> {
 
 - 根据页面逻辑相关的参数(`timeline_type`,`uid`)
 
-- 跟android framework相关的东西(比如` AndroidSchedulers.mainThread()`
+- 跟**Android Framework**相关的东西(比如` AndroidSchedulers.mainThread()`
 
   > 因为这一层是`apply plugin: 'java'`嘛~
 
-  ​
 
 然后我需要有:
 
@@ -353,9 +367,7 @@ public Observable<Timeline> excute(final boolean refresh) {
 }
 ```
 
-然后你会问业务逻辑在哪里...
-
-> 黑人问号???
+然后你会问业务逻辑在哪里(黑人问号???
 
 我就说嘛,一般的项目没什么业务逻辑....
 
@@ -363,13 +375,11 @@ public Observable<Timeline> excute(final boolean refresh) {
 
 所以View层(或者说是你的Presenter)不用再关心分页,不用有什么page或者cursor
 
-只要在那边一直调用`excute()`就好了
+只要在那边一直调用`excute()`就好了,想到一个View层的设计原则
 
-> 想到一个View层的设计原则:让View尽可能的笨拙和被动
+> 让View尽可能的笨拙和被动
 
 虽然会传过来一个`refresh`的`Boolean`值哈,但是可以认为这只是用户操作(页面逻辑),和业务逻辑无关.
-
-
 
 **PS:**
 
@@ -385,7 +395,7 @@ public @interface Nullable {
 
 >  因为这个module没有`support-annotation`可以用
 
-Dagger会要求如果你注入的参数是`null`,就必须用`@Nullable`注解,不然就会报错.
+**Dagger**会要求如果你注入的参数是`null`,就必须用`@Nullable`注解,不然就会报错.
 
 在一些地方我需要用到它,来传入一些默认值(比如null和0,因为可能这个请求参数用不到
 
@@ -393,37 +403,45 @@ Dagger会要求如果你注入的参数是`null`,就必须用`@Nullable`注解,�
 
 
 
+---
+
 **View层**
+
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/app层.jpg)
 
 View层其实没什么好讲的,就是Databinding+Dagger+MVP
 
 **Dagger:**
 
-喜欢用Dagger的原因是因为它能迫使我理清所有的依赖关系,
+喜欢用**Dagger**的原因是因为它能迫使我理清所有的依赖关系
 
-至于注入本身感觉也没有那么方便,毕竟多了很多前期的工作...
+至于注入本身感觉也没有那么方便,毕竟多了很多前期工作...
 
-关于Dagger的使用,随便就能找出一大堆不错的文章.
+关于**Dagger**的使用,也是看了很多文章才拎清楚的
 
-推荐一个:
-
-> 
+推荐一下[frogermcs的博客](http://frogermcs.github.io/)~
 
 **MVP:**
 
-基本上是照着goggle写出来的 
+基本上是照着Google的[android-architecture](https://github.com/googlesamples/android-architecture)写出来的 
 
-有很多分析这几个项目的不错的文章,我也是看了好久才搞清楚的
+有很多分析的不错的文章,我也是看了好久才搞清楚的
 
-这里就不展开了…具体的可以看看我的代码
+比如[**CameloeAnthon**](http://www.jianshu.com/users/44872eaffa8b/latest_articles)在简书上的那个系列~
 
-> 链接呢
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/dicha.jpg)
+
+这里就不展开了…
 
 **EventBus:**
 
-项目里的事件总线用的是Eventbus. 当然发现代码量一上去,各种event就会使逻辑变得很混乱.
+项目里的事件总线用的是Eventbus. 
 
-所以现在在耦合度比较高的地方,我都会用一般的回调方法.
+不过渐渐发现代码量一上去,各种event就会使逻辑变得很混乱
+
+>  不知道Eventbus的正确打开方式到底是什么?
+
+现在我反正是尽量少用...
 
 
 
@@ -433,15 +451,13 @@ View层其实没什么好讲的,就是Databinding+Dagger+MVP
 
 双向绑定什么的,实际使用场景很少...
 
-而且clean结构决定了View和真正的Model只会是单向的绑定
+而且Clean结构决定了View和真正的Model只会是单向的绑定
 
+>  但是如果你还没用过DataBinding,赶紧尝试一下吧
 
+其实Google的文档写的不是很全面,写的最好的感觉还是大帅的[博客](http://blog.zhaiyifan.cn/)
 
-如果你还没用过DataBinding,赶紧尝试吧
-
-其实google的文档写的不是很全面,最受用的还是大帅的博客:
-
-> 机智
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/dicha.jpg)
 
 
 
@@ -464,15 +480,17 @@ View层其实没什么好讲的,就是Databinding+Dagger+MVP
 
 其实用ViewModel的一个好处是可以很方便的封装一些方法.
 
-比如图片加载库...你可能会觉得图片加载库还要封装,不是只要一句话:
+比如**图片加载库**,你可能会觉得图片加载库还要封装,不是只要一句话:
 
 ```java
 load(url).into(imageView);
 ```
 
-对啊,但是可能你因为Glide的方法数太多,要换成Picasso,这下就麻烦了
+对啊,但是可能你因为**Glide**的方法数太多,要换成**Picasso**
 
-但是当你把所有图片加载的场景(简单的...)都写在`@BindingAdapter`里面
+>  这下不就麻烦了
+
+但是当你把所有图片加载的场景(一般的...)都写在`@BindingAdapter`里面
 
 举个🌰:
 
@@ -488,9 +506,7 @@ load(url).into(imageView);
     }
 ```
 
-这样到时候更换一个库就很方便了
-
-
+这样到时候全局意义上的替换一个库就很方便了
 
 **Rxjava**
 
@@ -522,17 +538,25 @@ load(url).into(imageView);
 
 关于RxJava,响应式编程什么的已经不是一个新鲜玩意儿,在这里就不赘述了
 
-关于它的学习资料:
+> 安利一下
 
----
+感觉**Github**上的[**Awesome-RxJava**](https://github.com/lzyzsd/Awesome-RxJava)列出的一些资料都非常不错~
 
 
+
+## 最后
 
 其他还有一些东西...之后再补上了
 
-总之,clean架构是个蛮有意思然后很实用的东西.
+总之,**Clean架构**是个蛮有意思然后很实用的东西
 
-有时间可以了解一下...
+大家有时间可以了解一下~
+
+最后,Everybody 新年快乐🎉🎉🎉 新的一年里都能成为更好的自己~
+
+
+
+![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/clear-architecture/jiaban.png)
 
 
 
