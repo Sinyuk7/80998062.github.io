@@ -4,7 +4,7 @@ title:      "一只小安卓的Clean架构实践以及年终总结"
 subtitle:   "新年快乐啦"
 date:       2017-01-02
 author:     "Sinyuk"
-header-img: "img/in-post/年终总结/bojack.jpg"
+header-img: "img/in-post/2016-11-03.jpg"
 tags:
     - Architecture
     - Android
