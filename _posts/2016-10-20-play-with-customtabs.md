@@ -12,12 +12,7 @@ tags:
 
 ---
 
-
-# 用一下Customtabs
-
-> Try something new
-
-## 关于Customtabs
+## About
 
 其实在国内customtabs的作用真的不大...因为没几个人在手机上用chrome的
 
@@ -25,47 +20,43 @@ tags:
 
 但是有时候还是要考虑那么一部分chrome用户的....
 
-> 知乎就用了customtabs 当时第一次看到感觉知乎也开始注重用户体验了....
-
-> 之前感觉它是内容营销...客户端改的再烂也不该吐槽....
+> 知乎就用了customtabs 当时第一次看到感觉知乎也开始注重用户体验了....之前感觉它是内容营销...客户端改的再烂也不该吐槽....
 
 
 哦哦,插一句,还有就是Chrome早就可以定制Overview App Bar的颜色,超简单啊,就是在网站<head>中加一句
 
-`<meta name="theme-color" content="#262a30">`
+```html
+<meta name="theme-color" content="#262a30">
+```
 
-然后没几个网站这么有心的....
+然而没几个网站这么有心的....
 
 
 ![image](https://github.com/80998062/80998062.github.io/raw/master/img/in-post/post-play-with-customtabs/sample.jpg)
 
 
-> 最一开始是在浏览V2EX的时候发现加了这个特性,后来知乎也有了
+> 最一开始是在浏览V2EX的时候发现加了这个特性,后来知乎也有了,反正就是...挺喜欢这些细节的
 
-> 反正就是...挺喜欢这些细节的
-
-# 功能介绍
+## Features
 
 - UI定制
 
- - toolbar颜色
- - Action button
- - 菜单项
- - 进出动画
+- toolbar颜色
+- Action button
+- 菜单项
+- 进出动画
 
 - 导航通知:提供回调让app知道导航栏被点击
 
 实现上面这些功能你这只要发送一个ACTION_VIEW的intent给浏览器就好了
 
 - 性能优化:
- - 后台预加载
- - URL联想功能
+- 后台预加载
+- URL联想功能
 
 实现这两个功能你的app需要绑定一个chrome的服务
 
-
----
-
+## Usecase
 
 改颜色和设置动画就不说了....
 
@@ -112,21 +103,22 @@ public void bindCustomTabsService(Activity activity) {
     mConnection = new ServiceConnection(this);
     CustomTabsClient.bindCustomTabsService(activity, packageName, mConnection);
 }
-
 ```
 
 这里注意这一句
 
-`String packageName = CustomTabsHelper.getPackageNameToUse(activity);`
+```java
+String packageName = CustomTabsHelper.getPackageNameToUse(activity);
+```
 
 因为可能你的手机里面不止一个浏览器支持custom tabs,
 所以我们通过PackageManager把所有能支持ACTION_VIEW的intent的
 ,同时支持custom tabs的service调用的包名列出来
 
 > 另外,为了一个更好的用户体验
-> 
+>
 > 比如说这是一个知乎的链接,我们就应该用知乎app打开它(如果安装了的话)
-
+>
 > 所以最好在跳转的时候判断一下Uri...如果是zhihu就调用知乎app
 
 
@@ -152,9 +144,7 @@ public CustomTabsSession getSession() {
 
 这里会创建一个新的session,这个session用于api里面所有的请求
 
-> 你也可以传入一个CustomTabsCallback在创建一个新的session的时候
-
-> 然后就能知道一个页面有没有加载成功
+> 你也可以传入一个CustomTabsCallback在创建一个新的session的时候,然后就能知道一个页面有没有加载成功
 
 你可以用session.mayLaunchUrl()进行预加载
 
@@ -219,6 +209,4 @@ private void handleUrl(String url) {
 
 就这样....
 
-> 这就是我怎么在椰壳日报里尝试用custom tabs的....
-
-具体例子可见:[YukDaily](https://github.com/80998062/YukDaily)
+这就是我怎么在椰壳日报里尝试用custom tabs的,具体例子可见:[YukDaily](https://github.com/80998062/YukDaily)
