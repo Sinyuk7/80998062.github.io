@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "我可能上了一个假的EventBus"
-subtitle:   "事件驱动编程"
+subtitle:   "Android事件驱动编程"
 date:       2017-01-27
 author:     "Sinyuk"
 header-img: "img/in-post/event-driving/bus.jpg"
@@ -10,7 +10,7 @@ tags:
     - EventBus
 ---
 
-# Android事件驱动编程 — 我可能上了一个假的EventBus
+
 
 肯定每个人都用过**EventBus**,因为被设计的简单易用,看下文档就可以很快上手
 
@@ -26,9 +26,11 @@ tags:
 
 之前在看**[Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture)**的时候就发现里面有**[ThreadPoolExecutor](https://github.com/android10/Android-CleanArchitecture/blob/master/data/src/main/java/com/fernandocejas/android10/sample/data/executor/JobExecutor.java)**
 
-当时一脸懵逼,再看了一遍**EventBus**的文档,然后简单了解了一下事件驱动编程
+当时一脸懵逼,再看了一遍**EventBus**的文档,
 
-🙄发现一直以来,我可能上了一个假的**EventBus**🚍
+
+
+然后了解了一点点事件驱动编程,🙄发现一直以来,我可能上了一个假的🚍
 
 ---
 
