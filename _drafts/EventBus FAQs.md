@@ -19,3 +19,7 @@
 **Why am I getting the warning “The following options were not recognized by any processor: ‘[eventBusIndex]'”?**
 
 This happens when you set up the build script, and you did not add any annotations to your code yet. Without any @Subscribe annotations, annotation processor for indexing will not be triggered to consume the ‘eventBusIndex’ option. So, just add some @Subscribe annotations and you should be fine
+
+你在onEvent()做某种初始化的话
+
+当acitivity重建的时候 不能retain state
